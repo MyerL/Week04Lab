@@ -44,7 +44,7 @@ String g;
                 
           }
           else{
-         getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
+                 getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(request, response);
        
           }
                    

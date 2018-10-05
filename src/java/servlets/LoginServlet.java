@@ -32,13 +32,14 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
        
-      
+     
         
         
        
         if(request.getParameter("home")!=null && session.getAttribute("check")!=null)//LOGOUT && CHECKED
             {
                 session.removeAttribute("c");
+                
              
                 request.setAttribute("error","You have successfully logged out"); 
                  if(ck!=null)//if theres something in it then place it
@@ -56,10 +57,11 @@ public class LoginServlet extends HttpServlet {
            
            
                 }
+                 
                 getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
             }
-     
-            session.removeAttribute("check");
+       
+            session.setAttribute("check","checked");
             session.removeAttribute("u");
             session.removeAttribute("c");
             
@@ -121,6 +123,7 @@ public class LoginServlet extends HttpServlet {
            }
            else
            {//NOTCHECKED
+               
                session.removeAttribute("u");
                session.removeAttribute("check");
            }
